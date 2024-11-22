@@ -50,7 +50,14 @@ for i=1:3
     end
 end
 
-% 3) Cluster consensus value matrix
+% 3) Draw cophenetic correlation coefficient plot
+figure;plot([2:6],coph_cor{1,1});hold on;
+plot([2:6],coph_cor{1,2},'g'); % MAD 20
+plot([2:6],coph_cor{1,3},'r'); % MAD 30
+legend([{'10%'};{'20%'};{'30%'}]);  
+set(gca,'XTick',[2:1:6]);
+
+% 4) Cluster consensus value matrix
 CG_mad30_c2=clustergram(ave_C{1,3}{1,1},'cluster',3,'standardize',3,'Linkage','complete');
 
 
